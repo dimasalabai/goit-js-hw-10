@@ -21,7 +21,7 @@ function updateSelect(data) {
   fetchBreeds(data)
     .then(data => {
       loaderEl.classList.replace('loader', 'is-hidden');
-
+      breedSelectEl.classList.remove('is-hidden');
       let markSelect = data.map(({ name, id }) => {
         return `<option value ='${id}'>${name}</option>`;
       });
@@ -36,6 +36,7 @@ function updateSelect(data) {
 function createMarkUp(event) {
   loaderEl.classList.replace('is-hidden', 'loader');
   breedSelectEl.classList.add('is-hidden');
+
   catInfoEl.classList.add('is-hidden');
 
   const breedId = event.currentTarget.value;
